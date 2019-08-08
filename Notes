@@ -13,6 +13,8 @@ Docker:
 docker run -p 80:80 -it image-name
 https://dzone.com/articles/how-to-run-docker-container-on-your-local-machine
 
+ng add @angular/pwa@0.6.8
+
 Coding:1
 var (
 	MaxWorker = os.Getenv("MAX_WORKERS")
