@@ -14,6 +14,7 @@ docker run -p 80:80 -it image-name
 https://dzone.com/articles/how-to-run-docker-container-on-your-local-machine
 
 ng add @angular/pwa@0.6.8
+https://www.freecodecamp.org/news/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned-7cb3f56daf9b/
 
 Coding:1
 var (
