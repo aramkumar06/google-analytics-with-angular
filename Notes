@@ -4,3 +4,6 @@ Ubuntu:
 https://github.com/electron/electron/issues/1518
 Job/Worker:
 http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/
+
+Technical:
+https://eng.uber.com/tech-stack-part-one/
