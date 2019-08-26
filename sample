@@ -1,0 +1,27 @@
+import { URLSearchParams } from '@angular/http';
+POST/PUT method
+
+let urlSearchParams = new URLSearchParams();
+urlSearchParams.append('username', username);
+urlSearchParams.append('password', password);
+this.http.post('/api', urlSearchParams).subscribe(
+      data => {
+        alert('ok');
+      },
+      error => {
+        console.log(JSON.stringify(error.json()));
+      }
+    )
+GET/DELETE method
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('username', username);
+    urlSearchParams.append('password', password);
+    this.http.get('/api', { search: urlSearchParams }).subscribe(
+      data => {
+        alert('ok');
+      },
+      error => {
+        console.log(JSON.stringify(error.json()));
+      }
+    )
