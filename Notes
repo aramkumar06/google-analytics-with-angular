@@ -5,6 +5,8 @@ https://github.com/electron/electron/issues/1518
 Job/Worker:
 http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/
 
+
+https://hevodata.com/blog/how-to-install-kafka-on-ubuntu/
 Currency Convert:
 https://api.coinbase.com/v2/exchange-rates?currency=INR
 https://api.coinbase.com/v2/prices/spot?currency=BTC
