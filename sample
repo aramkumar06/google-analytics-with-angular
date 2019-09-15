@@ -25,3 +25,14 @@ GET/DELETE method
         console.log(JSON.stringify(error.json()));
       }
     )
+
+Template Frorm
+<form (ngSubmit)="save()" #documentEditForm="ngForm">
+...
+</form>
+
+<button class="btn-save button primary"
+(click)="documentEditForm.ngSubmit.emit()"
+[disabled]="!documentEditForm.form.valid">SAVE</button>
+
+@ViewChild('documentEditForm') documentEditForm: FormGroupDirective; 
