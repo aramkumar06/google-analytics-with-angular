@@ -36,3 +36,10 @@ Template Frorm
 [disabled]="!documentEditForm.form.valid">SAVE</button>
 
 @ViewChild('documentEditForm') documentEditForm: FormGroupDirective; 
+
+Clear Text:
+    <access origin="*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:usesCleartextTraffic="true" />
+    </edit-config>
+    <allow-navigation href="*" />
