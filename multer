@@ -1,0 +1,44 @@
+Part 1:
+'use strict';
+
+let multer = require('multer');
+let fs = require('fs-extra');
+
+let upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, callback) => {
+      let type = req.params.type;
+      let path = `./uploads/${type}`;
+      fs.mkdirsSync(path);
+      callback(null, path);
+    },
+    filename: (req, file, callback) => {
+      //originalname is the uploaded file's name with extn
+      callback(null, file.originalname);
+    }
+  })
+});
+
+app.post('/api/:type', upload.single('file'), (req, res) => {
+  res.status(200).send();
+});
+
+Part 2:
+app.post('/api/:type', multer({
+dest: './uploads/',
+changeDest: function(dest, req, res) {
+    var newDestination = dest + req.params.type;
+    var stat = null;
+    try {
+        stat = fs.statSync(newDestination);
+    } catch (err) {
+        fs.mkdirSync(newDestination);
+    }
+    if (stat && !stat.isDirectory()) {
+        throw new Error('Directory cannot be created because an inode of a different type exists at "' + dest + '"');
+    }
+    return newDestination
+}
+}), function(req, res) {
+     //set your response
+});
