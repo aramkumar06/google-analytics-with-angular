@@ -50,3 +50,17 @@ Clear Text:
       <application android:usesCleartextTraffic="true" />
   </edit-config>
 </platform>
+
+
+Play Store URL:
+To send data to the Android Market, you have to build an uri like this one:
+
+market://details?id=my.package.name&referrer=someDataToTransfer
+To get this data back, you should implement an INSTALL_REFERRER Receiver.
+
+<receiver android:name="my.package.MyReceiver"
+          android:exported="true">
+   <intent-filter>
+   <action android:name="com.android.vending.INSTALL_REFERRER"></action>
+   </intent-filter>
+</receiver>
