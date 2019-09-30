@@ -64,3 +64,14 @@ To get this data back, you should implement an INSTALL_REFERRER Receiver.
    <action android:name="com.android.vending.INSTALL_REFERRER"></action>
    </intent-filter>
 </receiver>
+
+Min and Max
+function getYs(){
+  return data.map(d => d.y);
+}
+function getMinY(){
+  return Math.min(...getYs());
+}
+function getMaxY(){
+  return Math.max(...getYs());
+}
