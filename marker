@@ -1,0 +1,49 @@
+<canvas id="carcanvas" width="1" height="1"></canvas>
+
+
+    if (document.getElementById('carcanvas').getContext) {
+        var supportsCanvas = true;
+    } else {
+        var supportsCanvas = false;
+    }
+
+    var rImg = new Image();
+    rImg.src='/images/cariconl.png';
+
+    // Returns the bearing in radians between two points.
+    function bearing( from, to ) {
+        // Convert to radians.
+        var lat1 = from.latRadians();
+        var lon1 = from.lngRadians();
+        var lat2 = to.latRadians();
+        var lon2 = to.lngRadians();
+        // Compute the angle.
+        var angle = - Math.atan2( Math.sin( lon1 - lon2 ) * Math.cos( lat2 ), Math.cos( lat1 ) * Math.sin( lat2 ) - Math.sin( lat1 ) * Math.cos( lat2 ) * Math.cos( lon1 - lon2 ) );
+        if ( angle < 0.0 )
+            angle  += Math.PI * 2.0;
+        if (angle == 0) {angle=1.5;}
+        return angle;
+    }
+
+    function plotcar() {
+        canvas = document.getElementById("carcanvas").getContext('2d');
+        var cosa = Math.cos(angle);
+        var sina = Math.sin(angle);
+        canvas.clearRect(0,0,32,32);
+        canvas.save();
+        canvas.rotate(angle);
+        canvas.translate(16*sina+16*cosa,16*cosa-16*sina);
+        canvas.drawImage(rImg,-16,-16);
+        canvas.restore();
+    }
+
+
+
+if (supportsCanvas) {
+                    angle = bearing(new google.maps.LatLng(lat1, lng1),new google.maps.LatLng(lat2, lng2));
+                    plotcar();
+                }
+                
+                
+ 
+ https://stackoverflow.com/questions/6800613/rotating-image-marker-image-on-google-map-v3
